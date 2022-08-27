@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        // lab 1 - Login
+    let username = prompt("Enter your username");
+    let password = prompt("Enter your username");
+
+    if(username == "admin" && password == "421$$"){
+        alert('welcome login success');
+    }else{
+        alert('incorrect username or password');
+    }
+</script> -->
+
+<script>
+    // lab 2 - calc
+    var num1 = Number(prompt('Enter first number'));
+    var num2 = Number(prompt('Enter second number'));
+        var OP = prompt('Enter the operation');
+        switch(OP){
+            case '+': 
+            var result = num1 + num2 ; 
+            alert(`${num1}  ${OP}  ${num2} = ${result}`);
+            break;
+            case '/': 
+            var result = num1 / num2 ; 
+            alert(`${num1}  ${OP}  ${num2} = ${result}`);
+            break;
+            case '*': 
+            var result = num1 * num2 ; 
+            alert(`${num1}  ${OP}  ${num2} = ${result}`);
+            break;
+            case '-': 
+            var result = num1 - num2 ; 
+            alert(`${num1}  ${OP}  ${num2} = ${result}`);
+            break;
+            default:alert("erorr")
+        }
+        // lab 2 - calc - bouns
+        while(1){
+        let check = prompt('Do you want to procced with the result (yes / no)');
+        if(check == "yes"){
+        var num1 = Number(prompt('Enter first number'));
+        var OP = prompt('Enter the operation');
+        if(OP == "*"){
+            var NewResult = num1 * result ; 
+            alert(`${num1}  ${OP}  ${result} = ${NewResult}`);
+            }
+        if(OP == "-"){
+            var NewResult = num1 - result ; 
+            alert(`${num1}  ${OP}  ${result} = ${NewResult}`);
+        }if(OP == "/"){
+            var NewResult = num1 / result ; 
+            alert(`${num1}  ${OP}  ${result} = ${NewResult}`);
+        }if(OP == "*"){
+            var NewResult = num1 * result ; 
+            alert(`${num1}  ${OP}  ${result} = ${NewResult}`);
+        }
+        }else{
+            alert('Your final result is :' `${result}`);
+        }
+        break;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // lab1 predfined object methods
+        // 1. alert (str): displays an alert D.B. containing the string argument as text
+        // 2. prompt (str,str) displays a prompt D.B. containing the first argument string as an instruction on what to enter The second argument is the default to be returned   in case the user does not enter a string
+        // 3. write (str)  writes the string to the HTML document rather than to the window itself 
+        // 4. submit()     submit the form to the specified CGI program
+        // 5. getDate()	returns the day of the month (1-31)
+        // 6. random()	returns a floating-point number 0.0 - 0.999999
+        // 7. pow(base,expo) raises the given base to the power of the second.
+        // 8. round(num)	returns its argument rounded to the nearest integer.
+        // 9. charAt(ind)	returns the character in the string at given ind.
+        // 10. indexOf(char)   returns the first index of the given characte returns -1 if no such character
+
+        // lab2 predfined Array methods
+        // 1. some()    Checks if any of the elements in an array pass a test
+        // 2. sort()	Sorts the elements of an array
+        // 3. splice()	Adds/Removes elements from an array
+        // 4. toString()	Converts an array to a string, and returns the result
+        // 5. unshift()	Adds new elements to the beginning of an array, and returns the new length
+        // 6. valueOf()	Returns the primitive value of an array
+        // 7. slice()	Selects a part of an array, and returns the new array
+        // 8. shift()	Removes the first element of an array, and returns that element
+        // 9. reverse()	Reverses the order of the elements in an array
+        // 10. reduce()	Reduce the values of an array to a single value (going left-to-right)
+
+        // lab3 - nested function with clouser
+        // clouser : when you have a function defined inside another function that inner function has
+        // access to the variable and scoop of the outer function even if the outer function finished
+        //excuting or variables no longer accessable outside that function
+        function outerFunction(outerVariable) {
+            const Outer = 'ITI';
+            return function innerFunction(innerVariable) {
+                console.log(`Outer variable :  ${outerVariable}`)
+                console.log(`inner variable :  ${innerVariable}`)
+                console.log(Outer);
+            }
+        }
+        const newFunction = outerFunction('outside');
+        newFunction('inner');
+    </script>
+</body>
+
+</html>

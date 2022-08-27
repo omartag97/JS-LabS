@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // lab 1 - calculate sum and average
+        let ArrLenght = prompt('How many number you want to get the sum/average of');
+        let ArrOfElements = [];
+        for (i = 0; i < ArrLenght; i++) {
+            let value = prompt('Enter the value');
+            ArrOfElements.push(Number(value));
+        }
+        const sumOfArr = (arr) => {
+            let sum = 0;
+            arr.forEach(element => {
+                sum += element;
+            });
+            const averge = sum / ArrLenght;
+            return { sum, averge };
+        }
+        const { sum, averge } = sumOfArr(ArrOfElements)
+        alert(`Sum : ${sum}\n Average : ${averge}`);
+    </script>
+
+    <script>
+        // lab 1 - add and search for contacts
+        let contacts = [];
+        let check = prompt('Do you want to add Or search');
+        while (check == "add" || check == "yes") {
+            let name = prompt("Enter your name");
+            let PhoneNumber = prompt("Enter your phone number");
+            name = {
+                name: name,
+                number: PhoneNumber,
+            }
+            contacts.push(name);
+            check = prompt('Do you want to add another contact Or search for contact');
+        }
+        while (check == "search" || check == "yes") {
+            let name = prompt("Enter the name of contact");
+            let PhoneNumber = prompt("Enter the phone number");
+            let search = contacts.find(contact => contact.name == name &&  contact.number == PhoneNumber);
+            alert(`your contact name is : ${search.name} \n your contact phone number is : ${search.number}`);
+            check = prompt('Do you want to add another contact Or search for contact');
+        }
+    </script>
+
+    <script>
+        const pi = 3.14;
+        let shape = prompt('Enter the name of the shape');
+        if (shape == "area") {
+            let r = prompt("Enter the reduce of the circule");
+            let area = pi * r;
+            alert(`${pi}  *  ${r} = ${area}`);
+        } else if (shape == "triangle") {
+            let b = prompt("Enter the base of the triangle");
+            let h = prompt("Enter the hieght of the triangle");
+            let triangle = .5 * b * h;
+            alert(` .5 * ${b}  *  ${h} = ${triangle}`);
+        } else if (shape == "square") {
+            let a = prompt("Enter the lenght of the square side");
+            let square = a * a;
+            alert(`${a}  *  ${a} = ${square}`);
+        } else if (shape == "rectangle") {
+            let l = prompt("Enter the lenght of the rectangle");
+            let w = prompt("Enter the width of the rectangle");
+            let rectangle = l * w;
+            alert(`${l}  *  ${w} = ${rectangle}`);
+        } else if (shape == "paralllogram") {
+            let b = prompt("Enter the base of the paralllogram");
+            let h = prompt("Enter the vertical hieght of the paralllogram");
+            let paralllogram = b * h;
+            alert(`${b}  *  ${h} = ${paralllogram}`);
+        } else if (shape == "trapezium") {
+            let a = prompt("Enter the first parallel side");
+            let b = prompt("Enter the second parallel side");
+            let h = prompt("Enter the vertical hieght of the triangle");
+            let trapezium = .5 * (b + a) * h;
+            alert(`.5 * (${b} + ${a})  *  ${h} = ${trapezium}`);
+        } else if (shape == "ellipse") {
+            let a = prompt("Enter the major axis");
+            let b = prompt("Enter the minor axis");
+            let ellipse = pi * a * b;
+            alert(`${pi} * ${a}  *  ${b} = ${ellipse}`);
+        } else if (shape != "area" || shape != "triangle" || shape != "square" || shape != "rectangle" || shape != "paralllogram" || shape != "trapezium" || shape != "ellipse") {
+            alert(`Sorry no such a shape in our database : ${shape}`);
+        }
+    </script>
+</body>
+
+</html>
