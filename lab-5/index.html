@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            FullName;
+            Money;
+            SleepMood;
+            HealthRate;
+            MyName(name) {
+                return this.FullName = name;
+            }
+            sleep(hours) {
+                if (hours == 7) {
+                    return this.SleepMood = "Happy";
+                } else if (hours < 7) {
+                    return this.SleepMood = "Tired";
+                } else if (hours > 7) {
+                    return this.SleepMood = "Lazy";
+                }
+            }
+            eat(meals) {
+                if (meals == 3) {
+                    return this.HealthRate = "100 Health rate";
+                } else if (meals == 2) {
+                    return this.HealthRate = "75 Health rate";
+                }
+                else if (meals == 1) {
+                    return this.HealthRate = "50 Health rate";
+                }
+            }
+            buy(items) {
+                if (items == 1) {
+                    return this.Money -= 10;
+                }
+            }
+        }
+
+
+        class Employee extends Person {
+            constructor(name,email,IsManager){
+                super(name,20)
+                this.email = email;
+                this.empID = this.id ++;
+            }
+            id = 0;
+            email;
+            WorkpMood;
+            Salary;
+            IsManager;
+            empID;
+            work(hours) {
+                super.sleep();
+                if (hours == 8) {
+                    return this.WorkpMood = "Happy";
+                } else if (hours < 8) {
+                    return this.WorkpMood = "Tired";
+                } else if (hours > 8) {
+                    return this.WorkpMood = "Lazy";
+                }
+            }
+            salary(salary) {
+                this.salary = prompt("Enter your salary");
+                if (this.salary < 1000) {
+                    alert("Your salary must be 1000 or more");
+                }
+            }
+            employeeID(){
+                    return this.empID;
+                }
+        }
+
+        class Office {
+            #Employees; // make it private to be access only withen the class
+            constructor(){
+                this.#Employees =[];
+            }
+            getAllEmployee() {
+                return this.#Employees; // diplay all data in array 
+            }
+            getEmployee(empid) {
+                this.#Employees[Employee.employeeID]; // get employee with specific ID
+            }
+            fire(empid) {
+                delete this.#Employees[Employee.employeeID] ; // delete employee with specific ID
+                
+            }
+            hire(Employee) {
+                this.#Employees[Employee.employeeID] = Employee; // hire employee with specific ID
+            }
+        }
+        const AddEmployee = function(){
+            let name = prompt("enter his name");
+            let email = prompt("enter his email");
+            let manger = prompt("Is he a manger?");
+            let salary = prompt("enter his salary");
+            const emp = new Employee(name,email,manger)
+            emp.Salary(salary);
+            emp.sleep(8);
+            emp.eat(2);
+            emp.work(7);
+            return emp
+        }
+        
+        const Of = new Office;
+        while(1){
+            let posetion = prompt("add Or mngr Or nrml Or quit");
+            
+            if(posetion == "mngr"){
+                let proccess = prompt("Do you want to 'hire' Or 'fire' Or 'Show all employee data' Or 'get specific employee'");
+                if(proccess == "hire"){
+
+                    AddEmployee();
+
+                }else if(proccess == "fire"){
+
+                    Of.fire(prompt("Enter the id of employee you want to fire"));
+
+                }else if(proccess == "Show all employee data"){
+
+                    let displayAll = Of.getAllEmployee();
+                    for(i of displayAll){
+                        alert(`Employee id id -> ${i.employeeID} and his name is ${i}`)
+                    }
+
+                }else if(proccess == "get specific employee"){
+
+                    let specificEmployee = Of.getEmployee(prompt("Enter the id of employee you want to show data"));
+                    alert(`Employee id id -> ${specificEmployee.employeeID} and his name is ${specificEmployee}`)
+                }
+            }else if (posetion == "add"){
+                AddEmployee();
+            }else{
+                break;
+            }
+        }
+        console.log(Of.hire);
+    </script>
+
+</body>
+
+</html>
