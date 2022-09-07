@@ -1,5 +1,6 @@
 html, body, main {
-  background-color: gray;
+  background: rgb(255,67,67);
+background: linear-gradient(90deg, rgba(255,67,67,0.39539565826330536) 0%, rgba(4,77,255,0.1913807759431898) 100%);
     width: 100%;
     height: 100%;
     margin: 0;
@@ -81,23 +82,16 @@ html, body, main {
   #carousel div.nextRightSecond img {
     width: 200px;
   }
-  
-  .buttons {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 10px;
-  }
   .navigation .prev {
   position: absolute;
   z-index: 10;
   font-size: 25px;
   top: 40%;
-  left: 350px;
+  left: 50px;
   font-weight: 700;
 }
 .navigation .next {
-  right: 350px;
+  right: 50px;
   position: absolute;
   font-size: 25px;
   z-index: 10;
