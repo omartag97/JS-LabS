@@ -128,62 +128,58 @@
         <div id="newtask">
             <label style="padding-right: 40px;">Task</label>
             <input type="text" placeholder="Task name">
-            <button id="push">Add</button>
+            <button onclick="addTask(event)" id="push">Add</button>
         </div>
     </div>
 
     <script>
-        document.querySelector('#push').onclick = function () {
-            if (document.querySelector('#newtask input').value.length == 0) {
-                alert("Please Enter a Task")
-            }
-
-            else {
-                document.querySelector('#tasks').innerHTML += `
-            <div class="task">
-                <div id="append">
-                    <span id="taskname">
-                        ${document.querySelector('#newtask input').value}
-                    </span>
-                    
+        
+        const renderList = () => {
+            document.querySelector('#tasks').innerHTML = ""
+            JSON.parse(localStorage.getItem('tasks')).forEach((task, index) => {
+                document.querySelector('#tasks').innerHTML += `<div class="task">
+                    <div id="append">
+                        <span id="taskname">
+                            ${task}
+                        </span>
+    
                     </div>
-                <div >
-                    <button class="done mr-2">
-                    <i class="far fa-trash-alt"></i>
-                    Done
-                </button>
-                <button class="delete">
-                    <i class="far fa-trash-alt"></i>
-                    Delete
-                </button>
-               
+                    <div >
+                        <button class="done mr-2">
+                            <i class="far fa-trash-alt"></i>
+                            Done
+                        </button>
+                        <button onClick=(deleteTask(${index})) class="delete">
+                            <i class="far fa-trash-alt"></i>
+                            Delete
+                        </button>
+    
                     </div>
-
-                
-            </div>
-        `;
-
-                var current_tasks = document.querySelectorAll(".delete");
-                for (var i = 0; i < current_tasks.length; i++) {
-                    current_tasks[i].onclick = function () {
-                        this.parentNode.parentNode.remove();
-                    }
-                }
-                var current_task = document.querySelectorAll(".done");
-                for (var i = 0; i < current_task.length; i++) {
-                    current_task[i].onclick = function () {
-                        var input = document.createElement('input');
-                        input.setAttribute('type', 'checkbox');
-                        this.parentNode.parentNode.querySelectorAll("#append")[0].innerHTML +=`
-                        <span class="completed">
-                        Completed
-                    </span>
-                        `
-                        
-                    }
-                }
-            }
+                </div>`
+            });
+            
         }
+
+        renderList()
+
+        const deleteTask = (id) => {
+            const newTasks = JSON.parse(localStorage.getItem('tasks'))
+
+            newTasks.splice(id, 1)
+            localStorage.setItem('tasks', JSON.stringify(newTasks));
+
+            renderList()
+        }
+
+        const addTask = (event) => {
+            const newTaskName = event.target.parentNode.querySelector("#newtask input").value
+            
+            localStorage.setItem('tasks', JSON.stringify([...JSON.parse(localStorage.getItem('tasks')), newTaskName]));
+            
+            renderList()
+        }
+
+
     </script>
 </body>
 

@@ -33,7 +33,7 @@
             width: 300px;
             padding: 10px 50px 25px;
             border: 2px solid gray;
-            
+
             font-family: raleway;
             float: left;
             margin-top: 50px;
@@ -88,7 +88,7 @@
             width: 100%;
             padding: 10px 0;
             outline: none;
-            
+
         }
 
         input[type=button]:hover {
@@ -101,27 +101,36 @@
     <div class="container">
         <div class="main">
             <form id="form_id" method="post" name="myform">
-                <input type="text" name="username" id="username"  placeholder="username" />
-                <input type="password" name="password" id="password"  placeholder="password" />
+                <input type="text" name="username" id="username" placeholder="username" />
+                <input type="password" name="password" id="password" placeholder="password" />
                 <input type="button" value="Login" id="submit" onclick="validate()" />
                 <span>Not Registered? create account</span>
             </form>
         </div>
     </div>
 
-
+    password
     <script>
         function validate() {
+            const usernameRegex = /^([a-zA-Z0-9_]){8,20}$/ig;
+            const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/ig;
+
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
-            if (username == "admin" && password == "123") {
+
+            if (username == "admin" && password == "12345678") {
                 alert("Welocme");
-                
-            }
-            else {
-                alert("Not registered");
+            } else {
+                if (!usernameRegex.test(username)) {
+                    alert("Invaild username");
+                }
+                if (!passwordRegex.test(password)) {
+                    alert("Invaild Password");
                 }
             }
+
+
+        }
     </script>
 </body>
 
